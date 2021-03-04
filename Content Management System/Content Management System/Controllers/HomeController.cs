@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.SqlClient;
 
 namespace Content_Management_System.Controllers
 {
@@ -15,15 +16,20 @@ namespace Content_Management_System.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Beschrijving";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Contact Gegevens";
 
+            return View();
+        }
+
+        public ActionResult Inventaris()
+        {
             return View();
         }
     }
