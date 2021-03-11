@@ -34,7 +34,29 @@ namespace Content_Management_System.Controllers
             return View(context.GetAllLampen());
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Create([Bind] Lampen Lampen)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    string resp = empdb.AddEmployeeRecord(Lampen);
+                    TempData["msg"] = resp;
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["msg"] = ex.Message;
+            }
+            return View();
+        }
+    }
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

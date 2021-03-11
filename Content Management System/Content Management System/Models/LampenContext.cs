@@ -44,6 +44,5 @@ namespace Content_Management_System.Models
             }
             return list;
         }
-
     }
 }

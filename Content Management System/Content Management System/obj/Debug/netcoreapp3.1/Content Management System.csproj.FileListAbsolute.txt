@@ -122,3 +122,4 @@ C:\Users\td10\Documents\Content-Management-System\Content Management System\Cont
 C:\Users\td10\Documents\Content-Management-System\Content Management System\Content Management System\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\td10\Documents\Content-Management-System\Content Management System\Content Management System\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\td10\Documents\Content-Management-System\Content Management System\Content Management System\obj\Debug\netcoreapp3.1\Razor\Views\Home\Lampen.cshtml.g.cs
+C:\Users\td10\Documents\Content-Management-System\Content Management System\Content Management System\obj\Debug\netcoreapp3.1\Razor\Views\Home\Create.cshtml.g.cs
