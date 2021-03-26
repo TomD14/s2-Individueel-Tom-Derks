@@ -7,14 +7,19 @@ namespace Content_Management_System.Models
 {
     public class Lampen
     {
-        private LampenContext context;
-        public int id { get; set; }
+        private LampContext context;
+        public int Id { get; set; }
 
         public string Model { get; set; }
 
-        public string Watt { get; set; }
+        public int Watt { get; set; }
 
-        public string Volt { get; set; }
+        public int Volt { get; set; }
 
+        public int Hertz { get; set; }
+
+        public int Kleur { get; set; }
+
+        public int Aantal { get; set; }
     }
 }

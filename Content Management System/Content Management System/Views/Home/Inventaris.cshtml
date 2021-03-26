@@ -1,19 +1,19 @@
 ﻿@model IEnumerable<Content_Management_System.Models.Lampen>
 
 @{
-    ViewData["Title"] = "Lampen";
+    ViewData["Title"] = "Inventaris";
 }
 
-<h1>Lampen</h1>
+<h1>Inventaris</h1>
 
 <p>
-    <a asp-action="Create">Create New (Nog niet werkend)</a>
+    <a asp-controller="Lamp12" asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.id)
+                @Html.DisplayNameFor(model => model.Id)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Model)
@@ -24,6 +24,15 @@
             <th>
                 @Html.DisplayNameFor(model => model.Volt)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hertz)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kleur)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Aantal)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -31,7 +40,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.id)
+                @Html.DisplayFor(modelItem => item.Id)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Model)
@@ -41,6 +50,15 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Volt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hertz)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kleur)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aantal)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
