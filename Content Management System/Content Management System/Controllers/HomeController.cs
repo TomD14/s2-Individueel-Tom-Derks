@@ -30,8 +30,19 @@ namespace Content_Management_System.Controllers
 
         public IActionResult Inventaris()
         {
+<<<<<<< HEAD
             LampContext context = HttpContext.RequestServices.GetService(typeof(Content_Management_System.Models.LampContext)) as LampContext;
             return View(context.GetAllLampen());
+=======
+<<<<<<< HEAD
+            LampContext context = HttpContext.RequestServices.GetService(typeof(Content_Management_System.Models.LampContext)) as LampContext;
+            return View(context.GetAllLampen());
+=======
+            //LampContext context = HttpContext.RequestServices.GetService(typeof(Content_Management_System.Models.LampContext)) as LampContext;
+            //return View(context.GetAllLampen());
+            return View();
+>>>>>>> 9af3c46d62a1e89e9db0e7a8d0cdc9562b6c3e0f
+>>>>>>> c14375f6eaa5b10655c6fe58eb79ff5e5f17e0af
         }
 
 
