@@ -121,5 +121,10 @@ C:\Users\td10\Documents\Content-Management-System\Content Management System\Cont
 C:\Users\td10\Documents\Content-Management-System\Content Management System\Content Management System\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\td10\Documents\Content-Management-System\Content Management System\Content Management System\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\td10\Documents\Content-Management-System\Content Management System\Content Management System\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\td10\Documents\Content-Management-System\Content Management System\Content Management System\obj\Debug\netcoreapp3.1\Razor\Views\Home\Lampen.cshtml.g.cs
-C:\Users\td10\Documents\Content-Management-System\Content Management System\Content Management System\obj\Debug\netcoreapp3.1\Razor\Views\Home\Create.cshtml.g.cs
+C:\Users\td10\Documents\Content-Management-System\Content Management System\Content Management System\bin\Debug\netcoreapp3.1\Microsoft.Azure.Documents.ServiceInterop.dll
+C:\Users\td10\Documents\Content-Management-System\Content Management System\Content Management System\bin\Debug\netcoreapp3.1\Cosmos.CRTCompat.dll
+C:\Users\td10\Documents\Content-Management-System\Content Management System\Content Management System\bin\Debug\netcoreapp3.1\Microsoft.Azure.DocumentDB.Core.dll
+C:\Users\td10\Documents\Content-Management-System\Content Management System\Content Management System\bin\Debug\netcoreapp3.1\runtimes\win7-x64\native\Cosmos.CRTCompat.dll
+C:\Users\td10\Documents\Content-Management-System\Content Management System\Content Management System\bin\Debug\netcoreapp3.1\runtimes\win7-x64\native\Microsoft.Azure.Documents.ServiceInterop.dll
+C:\Users\td10\Documents\Content-Management-System\Content Management System\Content Management System\obj\Debug\netcoreapp3.1\Razor\Views\Home\Inventaris.cshtml.g.cs
+C:\Users\td10\Documents\Content-Management-System\Content Management System\Content Management System\obj\Debug\netcoreapp3.1\Razor\Views\Lamp12\Create.cshtml.g.cs

@@ -6,11 +6,11 @@ using MySql.Data.MySqlClient;
 
 namespace Content_Management_System.Models
 {
-    public class LampenContext
+    public class LampContext
     {
         public string ConnectionString { get; set; }
 
-        public LampenContext(string connectionString)
+        public LampContext(string connectionString)
         {
             this.ConnectionString = connectionString;
         }
@@ -26,7 +26,7 @@ namespace Content_Management_System.Models
             using (MySqlConnection conn = GetConnection())
             {
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand("select * from lampen where id < 10", conn);
+                MySqlCommand cmd = new MySqlCommand("select * from inventaris where id < 15", conn);
 
                 using (var reader = cmd.ExecuteReader())
                 {
@@ -34,10 +34,14 @@ namespace Content_Management_System.Models
                     {
                         list.Add(new Lampen()
                         {
-                            id = Convert.ToInt32(reader["id"]),
+                            Id = Convert.ToInt32(reader["Id"]),
                             Model = reader["Model"].ToString(),
-                            Watt = reader["Watt"].ToString(),
-                            Volt = reader["Volt"].ToString()
+                            Watt = Convert.ToInt32(reader["Watt"]),
+                            Volt = Convert.ToInt32(reader["Volt"]),
+                            Hertz = Convert.ToInt32(reader["Hertz"]),
+                            Kleur = Convert.ToInt32(reader["Kleur"]),
+                            Aantal = Convert.ToInt32(reader["Aantal"])
+
                         });
                     }
                 }

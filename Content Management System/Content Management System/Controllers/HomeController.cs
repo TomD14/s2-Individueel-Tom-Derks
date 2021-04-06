@@ -28,38 +28,35 @@ namespace Content_Management_System.Controllers
             return View();
         }
 
-        public IActionResult Lampen()
+        public IActionResult Inventaris()
         {
-            LampenContext context = HttpContext.RequestServices.GetService(typeof(Content_Management_System.Models.LampenContext)) as LampenContext;
+            LampContext context = HttpContext.RequestServices.GetService(typeof(Content_Management_System.Models.LampContext)) as LampContext;
             return View(context.GetAllLampen());
         }
 
-        public IActionResult Create()
-        {
-            return View();
-        }
-        [HttpPost]
-        public IActionResult Create([Bind] Lampen Lampen)
-        {
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    string resp = empdb.AddEmployeeRecord(Lampen);
-                    TempData["msg"] = resp;
-                }
-            }
-            catch (Exception ex)
-            {
-                TempData["msg"] = ex.Message;
-            }
-            return View();
-        }
-    }
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+
+        //[HttpPost]
+        //public IActionResult Create([Bind] Lampen Lampen)
+        //{
+        //    try
+        //    {
+        //        if (ModelState.IsValid)
+        //        {
+        //            string resp = Convert.ToString(Lampen);
+        //            TempData["msg"] = resp;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        TempData["msg"] = ex.Message;
+        //    }
+        //    return View();
+        //}
+
+        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        //public IActionResult Error()
+        //{
+        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        //}
     }
 }
