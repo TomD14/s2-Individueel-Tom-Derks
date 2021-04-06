@@ -19,39 +19,11 @@ namespace Content_Management_System.Controllers
         public IActionResult LampToevoegen()
         {
             InventarisDBAccesLayer.AddLamp("INSERT INTO inventaris(`Model`,`Watt`,`Volt`,`Hertz`,`Kleur`,`Aantal`)VALUES( \'" + Request.Form["Model"] + "\', " + Request.Form["Watt"] + ", " + Request.Form["Volt"] + ", " + Request.Form["Hertz"] + ", " + Request.Form["Kleur"] + ", " + Request.Form["Aantal"] + ")");
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> c14375f6eaa5b10655c6fe58eb79ff5e5f17e0af
-            //return RedirectToAction("Inventaris", "Home");
-            return Redirect("/Home/Inventaris");
-        }
-
-        //[HttpPost]
-        //public IActionResult Create([Bind] Lampen Lampen)
-        //{
-        //    try
-        //    {
-        //        if (ModelState.IsValid)
-        //        {
-        //            string resp = lmpdb.AddEmployeeRecord(Lampen);
-        //            TempData["msg"] = resp;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        TempData["msg"] = ex.Message;
-        //    }
-        //    return View();
-        //}
-<<<<<<< HEAD
-=======
-=======
 
             return Redirect("/Home/Inventaris");
+        
         }
->>>>>>> 9af3c46d62a1e89e9db0e7a8d0cdc9562b6c3e0f
->>>>>>> c14375f6eaa5b10655c6fe58eb79ff5e5f17e0af
+
     }
 }
 
