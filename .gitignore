@@ -348,3 +348,9 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+Content Management System/Content Management System/Models/DataBase/AppDB.cs
+Content Management System/Content Management System/Models/DataBase/InventarisDBAccesLayer.cs
+Content Management System/Content Management System/Models/DataBase/LampContext.cs
+Content Management System/Content Management System/Models/Error/ErrorViewModel.cs
+Content Management System/Content Management System/Models/Objects/InventarisQuery.cs
+Content Management System/Content Management System/Models/Objects/Lampen.cs
