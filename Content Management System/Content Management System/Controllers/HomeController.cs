@@ -30,6 +30,7 @@ namespace Content_Management_System.Controllers
 
         public IActionResult Inventaris()
         {
+<<<<<<< HEAD
 
             LampContext context = HttpContext.RequestServices.GetService(typeof(Content_Management_System.Models.LampContext)) as LampContext;
             return View(context.GetAllLampen());
@@ -38,6 +39,10 @@ namespace Content_Management_System.Controllers
             return View(context.GetAllLampen());
             return View();
 
+=======
+            LampContext context = HttpContext.RequestServices.GetService(typeof(Content_Management_System.Models.LampContext)) as LampContext;
+            return View(context.GetAllLampen());
+>>>>>>> parent of 9af3c46... New Database Code
         }
 
 
