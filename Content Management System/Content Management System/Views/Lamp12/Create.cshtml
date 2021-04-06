@@ -3,15 +3,10 @@
     ViewData["Title"] = "Create Employee";
 }
 <h2>Create</h2>
-<h4>Employees</h4>
+<h4>Lamp</h4>
 <hr />
-<form asp-action="Create" class="form-horizontal">
+<form asp-action="LampToevoegen" class="form-horizontal" method="post">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <div class="form-group">
-        <label class="control-label">Id</label>
-        <input asp-for="id" class="form-control" />
-        <span asp-validation-for="id" class="text-danger"></span>
-    </div>
     <div class="form-group">
         <label class="control-label">Model</label>
         <input asp-for="Model" class="form-control" />
@@ -26,6 +21,21 @@
         <label class="control-label">Volt</label>
         <input asp-for="Volt" class="form-control" />
         <span asp-validation-for="Volt" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label class="control-label">Hertz</label>
+        <input asp-for="Hertz" class="form-control" />
+        <span asp-validation-for="Hertz" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label class="control-label">Kleur</label>
+        <input asp-for="Kleur" class="form-control" />
+        <span asp-validation-for="Kleur" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label class="control-label">Aantal</label>
+        <input asp-for="Aantal" class="form-control" />
+        <span asp-validation-for="Aantal" class="text-danger"></span>
     </div>
     <div class="form-group">
         <input type="submit" value="Submit" class="btn bg-primary" />
