@@ -25,20 +25,7 @@ namespace Content_Management_System
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-<<<<<<< HEAD
-<<<<<<< HEAD
             services.Add(new ServiceDescriptor(typeof(LampContext), new LampContext(Configuration.GetConnectionString("DefaultConnection"))));
-=======
-<<<<<<< HEAD
-            services.Add(new ServiceDescriptor(typeof(LampContext), new LampContext(Configuration.GetConnectionString("DefaultConnection"))));
-=======
-            //services.Add(new ServiceDescriptor(typeof(LampContext), new LampContext(Configuration.GetConnectionString("DefaultConnection"))));
-            services.AddTransient<AppDB>(_ => new AppDB(Configuration["ConnectionStrings:DefaultConnection"]));
->>>>>>> 9af3c46d62a1e89e9db0e7a8d0cdc9562b6c3e0f
->>>>>>> c14375f6eaa5b10655c6fe58eb79ff5e5f17e0af
-=======
-            services.Add(new ServiceDescriptor(typeof(LampContext), new LampContext(Configuration.GetConnectionString("DefaultConnection"))));
->>>>>>> parent of 9af3c46... New Database Code
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

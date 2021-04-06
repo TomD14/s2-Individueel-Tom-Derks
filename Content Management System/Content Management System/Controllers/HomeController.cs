@@ -30,44 +30,8 @@ namespace Content_Management_System.Controllers
 
         public IActionResult Inventaris()
         {
-<<<<<<< HEAD
-
             LampContext context = HttpContext.RequestServices.GetService(typeof(Content_Management_System.Models.LampContext)) as LampContext;
             return View(context.GetAllLampen());
-
-            LampContext context = HttpContext.RequestServices.GetService(typeof(Content_Management_System.Models.LampContext)) as LampContext;
-            return View(context.GetAllLampen());
-            return View();
-
-=======
-            LampContext context = HttpContext.RequestServices.GetService(typeof(Content_Management_System.Models.LampContext)) as LampContext;
-            return View(context.GetAllLampen());
->>>>>>> parent of 9af3c46... New Database Code
         }
-
-
-        //[HttpPost]
-        //public IActionResult Create([Bind] Lampen Lampen)
-        //{
-        //    try
-        //    {
-        //        if (ModelState.IsValid)
-        //        {
-        //            string resp = Convert.ToString(Lampen);
-        //            TempData["msg"] = resp;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        TempData["msg"] = ex.Message;
-        //    }
-        //    return View();
-        //}
-
-        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        //public IActionResult Error()
-        //{
-        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        //}
     }
 }

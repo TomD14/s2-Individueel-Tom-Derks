@@ -23,27 +23,6 @@ namespace Content_Management_System.Controllers
             return Redirect("/Home/Inventaris");
         
         }
-
-<<<<<<< HEAD
-=======
-        //[HttpPost]
-        //public IActionResult Create([Bind] Lampen Lampen)
-        //{
-        //    try
-        //    {
-        //        if (ModelState.IsValid)
-        //        {
-        //            string resp = lmpdb.AddEmployeeRecord(Lampen);
-        //            TempData["msg"] = resp;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        TempData["msg"] = ex.Message;
-        //    }
-        //    return View();
-        //}
->>>>>>> parent of 9af3c46... New Database Code
     }
 }
 
