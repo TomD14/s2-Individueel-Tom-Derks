@@ -1,6 +1,6 @@
-﻿@model Content_Management_System.Models.Lampen
+﻿@model Content_Management_System.Models.Lamp
 @{
-    ViewData["Title"] = "Create Employee";
+    ViewData["Title"] = "Create Lamp";
 }
 <h2>Create</h2>
 <h4>Lamp</h4>
@@ -16,16 +16,6 @@
         <label class="control-label">Watt</label>
         <input asp-for="Watt" class="form-control" />
         <span asp-validation-for="Watt" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label class="control-label">Volt</label>
-        <input asp-for="Volt" class="form-control" />
-        <span asp-validation-for="Volt" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label class="control-label">Hertz</label>
-        <input asp-for="Hertz" class="form-control" />
-        <span asp-validation-for="Hertz" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label class="control-label">Kleur</label>

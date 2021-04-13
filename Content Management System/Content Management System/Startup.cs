@@ -25,6 +25,7 @@ namespace Content_Management_System
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddRazorPages();
             services.Add(new ServiceDescriptor(typeof(LampContext), new LampContext(Configuration.GetConnectionString("DefaultConnection"))));
         }
 
