@@ -28,6 +28,7 @@ namespace Business_Logic.Models
                         Model = "Lamp seed 1",
                         Watt = 60,
                         Kleur = 3000,
+                        Prijs = 5,
                         Aantal = 7
                     },
 
@@ -36,6 +37,7 @@ namespace Business_Logic.Models
                         Model = "Lamp seed 2",
                         Watt = 70,
                         Kleur = 3500,
+                        Prijs = 8,
                         Aantal = 12
                     },
 
@@ -44,6 +46,7 @@ namespace Business_Logic.Models
                         Model = "Lamp seed 3",
                         Watt = 30,
                         Kleur = 5000,
+                        Prijs = 6,
                         Aantal = 56
                     },
 
@@ -52,6 +55,7 @@ namespace Business_Logic.Models
                         Model = "Lamp seed 4",
                         Watt = 50,
                         Kleur = 4000,
+                        Prijs = 3,
                         Aantal = 9
                     }
                 );

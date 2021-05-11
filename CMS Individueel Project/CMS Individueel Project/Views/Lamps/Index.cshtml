@@ -4,14 +4,14 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Inventaris</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
 <form asp-controller="Lamps" asp-action="Index">
     <p>
-        Title: <input type="text" name="SearchString" />
+        Model naam: <input type="text" name="SearchString" />
         <input type="submit" value="Filter" />
     </p>
 </form>
