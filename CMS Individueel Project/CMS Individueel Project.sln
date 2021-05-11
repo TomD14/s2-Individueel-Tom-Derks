@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS Individueel Project", "CMS Individueel Project\CMS Individueel Project.csproj", "{C5CF1EE8-45E3-4B81-998E-45DDE08C4AB9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CMS Individueel Project", "CMS Individueel Project\CMS Individueel Project.csproj", "{C5CF1EE8-45E3-4B81-998E-45DDE08C4AB9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business Logic", "Business Logic\Business Logic.csproj", "{AF26566B-2855-4460-931F-6ADABB6B54CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business Logic", "Business Logic\Business Logic.csproj", "{AF26566B-2855-4460-931F-6ADABB6B54CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data Layer", "Data Layer\Data Layer.csproj", "{AC0B1D01-257D-4CD3-9D77-A8A34068923E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{AF26566B-2855-4460-931F-6ADABB6B54CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF26566B-2855-4460-931F-6ADABB6B54CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF26566B-2855-4460-931F-6ADABB6B54CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC0B1D01-257D-4CD3-9D77-A8A34068923E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC0B1D01-257D-4CD3-9D77-A8A34068923E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC0B1D01-257D-4CD3-9D77-A8A34068923E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC0B1D01-257D-4CD3-9D77-A8A34068923E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
