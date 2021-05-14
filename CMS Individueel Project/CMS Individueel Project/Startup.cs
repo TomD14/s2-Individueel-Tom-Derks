@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Business_Logic.Data;
+using CMS_Individueel_Project.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace CMS_Individueel_Project

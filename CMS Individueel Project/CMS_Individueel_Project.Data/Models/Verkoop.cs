@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 
 
-namespace Business_Logic.Models
+namespace CMS_Individueel_Project.Data.Models
 {
     public class Verkoop
     {

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Business_Logic.Data;
+using CMS_Individueel_Project.Data;
+using CMS_Individueel_Project.Data.Models;
 
-namespace Business_Logic.Models
+namespace CMS_Individueel_Project.Models
 {
     public class SeedData
     {

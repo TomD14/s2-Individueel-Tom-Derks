@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Business_Logic.Data;
-using Business_Logic.Models;
+using CMS_Individueel_Project.Data;
+using CMS_Individueel_Project.Data.Data.Repositories;
+using CMS_Individueel_Project.Data.Data.Repositories.Interfaces;
+using CMS_Individueel_Project.Data.Models;
+using CMS_Individueel_Project.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,25 +15,20 @@ namespace CMS_Individueel_Project.Controllers
 {
     public class VerkopenController : Controller
     {
-        private readonly CMSContext _context;
-
+        VerkoopRepository verkoopRepository;
+        LampRepository lampRepository;
         public VerkopenController(CMSContext context)
         {
-            _context = context;
+            verkoopRepository = new VerkoopRepository(context);
+            lampRepository = new LampRepository(context);
         }
 
         // GET: Lamps
         public async Task<IActionResult> Index(string searchString)
         {
-            var verkopen = (from m in _context.Verkoop
-                           select m).Include("Lamp");
+            var verkopen = await verkoopRepository.GetAllVerkopenByModelAsync(searchString);
 
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                verkopen = verkopen.Where(s => s.Lamp.Model.Contains(searchString));
-            }
-
-            return View(await verkopen.ToListAsync());
+            return View(verkopen);
         }
 
         // GET: Lamps/Details/5
@@ -41,20 +39,19 @@ namespace CMS_Individueel_Project.Controllers
                 return NotFound();
             }
 
-            var lamp = await _context.Lamp
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (lamp == null)
+            var verkoop = await verkoopRepository.GetByIdAsync(id);    
+            if (verkoop == null)
             {
                 return NotFound();
             }
 
-            return View(lamp);
+            return View(verkoop);
         }
 
         // GET: Lamps/Create
         public async Task<IActionResult> Create()
         {
-            var lamps = await _context.Lamp.ToListAsync();
+            var lamps = await lampRepository.GetAllAsync();
             ViewData["lamps"] = lamps;
             return View();
         }
@@ -66,7 +63,7 @@ namespace CMS_Individueel_Project.Controllers
         {
             if (ModelState.IsValid)
             {
-                var lamp = await _context.Lamp.FirstOrDefaultAsync(l => l.Id == verkoop.LampId);
+                var lamp = await lampRepository.GetByIdAsync(verkoop.LampId);
 
                 if (lamp == null)
                 {
@@ -74,10 +71,10 @@ namespace CMS_Individueel_Project.Controllers
                 }
 
                 lamp.Aantal -= verkoop.Aantal;
-                _context.Lamp.Update(lamp);
+                lampRepository.Update(lamp);
 
-                _context.Add(verkoop);
-                await _context.SaveChangesAsync();
+                verkoopRepository.Add(verkoop);
+                await verkoopRepository.SaveAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(verkoop);
@@ -91,20 +88,21 @@ namespace CMS_Individueel_Project.Controllers
                 return NotFound();
             }
 
-            var lamp = await _context.Lamp.FindAsync(id);
-            if (lamp == null)
+            var verkoop = await verkoopRepository.GetByIdAsync(id);
+
+            if (verkoop == null)
             {
                 return NotFound();
             }
-            return View(lamp);
+            return View(verkoop);
         }
 
         // POST: Lamps/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Model,Watt,Kleur,Aantal")] Lamp lamp)
+        public async Task<IActionResult> Edit(int id, [Bind("Aantal")] Verkoop Verkoop)
         {
-            if (id != lamp.Id)
+            if (id != Verkoop.Id)
             {
                 return NotFound();
             }
@@ -113,12 +111,12 @@ namespace CMS_Individueel_Project.Controllers
             {
                 try
                 {
-                    _context.Update(lamp);
-                    await _context.SaveChangesAsync();
+                    verkoopRepository.Update(Verkoop);
+                    await verkoopRepository.SaveAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!LampExists(lamp.Id))
+                    if (!LampExists(Verkoop.Id))
                     {
                         return NotFound();
                     }
@@ -129,7 +127,7 @@ namespace CMS_Individueel_Project.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(lamp);
+            return View(Verkoop);
         }
 
         // GET: Lamps/Delete/5
@@ -140,14 +138,13 @@ namespace CMS_Individueel_Project.Controllers
                 return NotFound();
             }
 
-            var lamp = await _context.Lamp
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (lamp == null)
+            var verkoop = await verkoopRepository.GetByIdAsync(id);
+            if (verkoop == null)
             {
                 return NotFound();
             }
 
-            return View(lamp);
+            return View(verkoop);
         }
 
         // POST: Lamps/Delete/5
@@ -155,15 +152,15 @@ namespace CMS_Individueel_Project.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var lamp = await _context.Lamp.FindAsync(id);
-            _context.Lamp.Remove(lamp);
-            await _context.SaveChangesAsync();
+            var verkoop = await verkoopRepository.GetByIdAsync(id);
+           verkoopRepository.Remove(verkoop);
+            await verkoopRepository.SaveAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool LampExists(int id)
         {
-            return _context.Lamp.Any(e => e.Id == id);
+            return verkoopRepository.GetByIdAsync(id) != null; ;
         }
     }
 }

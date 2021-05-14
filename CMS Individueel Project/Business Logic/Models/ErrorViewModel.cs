@@ -1,11 +1,11 @@
 using System;
 
-namespace Business_Logic.Models
+namespace CMS_Individueel_Project.Models
 {
     public class ErrorViewModel
     {
         public string RequestId { get; set; }
 
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
-    }
+    } 
 }

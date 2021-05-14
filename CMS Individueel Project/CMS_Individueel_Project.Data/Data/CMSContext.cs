@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Business_Logic.Models;
+using CMS_Individueel_Project.Data.Models;
 
-namespace Business_Logic.Data
+namespace CMS_Individueel_Project.Data
 {
     public class CMSContext : DbContext
     {

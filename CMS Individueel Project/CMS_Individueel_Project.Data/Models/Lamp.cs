@@ -4,10 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
-namespace Business_Logic.Models
+namespace CMS_Individueel_Project.Data.Models
 {
     public class Lamp
     {
+        [Key]
         public int Id { get; set; }
 
         [StringLength(60, MinimumLength = 3)]

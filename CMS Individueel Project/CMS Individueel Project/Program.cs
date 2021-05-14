@@ -2,8 +2,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Business_Logic.Data;
-using Business_Logic.Models;
+using CMS_Individueel_Project.Data;
+using CMS_Individueel_Project.Models;
 using System;
 
 namespace CMS_Individueel_Project
