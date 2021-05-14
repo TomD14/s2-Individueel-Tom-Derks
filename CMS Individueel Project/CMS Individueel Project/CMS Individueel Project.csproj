@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Business Logic\Business Logic.csproj" />
+    <ProjectReference Include="..\Business Logic\CMS Individueel Project.Logic.csproj" />
   </ItemGroup>
 
 </Project>
