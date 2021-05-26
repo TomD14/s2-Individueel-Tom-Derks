@@ -6,7 +6,7 @@ using System.Text;
 
 namespace CMS_Individueel_Project.Data.Models
 {
-    class Verkoper
+    public class Verkoper
     {
         [Key]
         public int Id { get; set; }

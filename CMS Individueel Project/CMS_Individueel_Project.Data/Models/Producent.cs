@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CMS_Individueel_Project.Data.Models
 {
-    class Producent
+    public class Producent
     {
         [Key]
         public int Id { get; set; }

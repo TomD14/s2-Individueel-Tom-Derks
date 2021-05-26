@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CMS_Individueel_Project.Data.Models
 {
-    class Adress
+    public class Adress
     {
         [Key]
         public int Id { get; set; }
