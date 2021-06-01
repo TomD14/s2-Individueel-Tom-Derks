@@ -1,13 +1,13 @@
 ﻿using CMS_Individueel_Project.Data.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace CMS_Individueel_Project.Data.Data.Repositories.Interfaces
 {
-    public interface IVerkoopRepository
+    public class KoperRepository : GenericRepository<Koper>, IKoperRepository
     {
-        Task<IEnumerable<Verkoop>> GetAllVerkopenByModelAsync(string searchString);
+        public KoperRepository(DbContext context) : base(context) { }
     }
 }
