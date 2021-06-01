@@ -16,8 +16,8 @@ namespace CMS_Individueel_Project.Data
 
         public DbSet<Lamp> Lamp { get; set; }
         public DbSet<Verkoop> Verkoop { get; set; }
-        public DbSet<Verkoper> Verkoper { get; set; }
-        public DbSet<Adress> Adress { get; set; }
+        public DbSet<Koper> Koper { get; set; }
+        public DbSet<Adres> Adres { get; set; }
         public DbSet<Producent> Producent { get; set; }
     }
 }

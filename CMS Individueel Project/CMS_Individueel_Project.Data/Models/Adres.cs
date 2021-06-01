@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CMS_Individueel_Project.Data.Models
 {
-    public class Adress
+    public class Adres
     {
         [Key]
         public int Id { get; set; }
@@ -16,7 +16,7 @@ namespace CMS_Individueel_Project.Data.Models
         [Required]
         public string Straat { get; set; }
         
-        public int Huisnummer { get; set; }
+        public string Huisnummer { get; set; }
         
         [Required]
         public string PostCode { get; set; }

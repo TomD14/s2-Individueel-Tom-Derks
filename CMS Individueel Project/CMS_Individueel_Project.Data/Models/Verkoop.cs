@@ -17,7 +17,7 @@ namespace CMS_Individueel_Project.Data.Models
         [ForeignKey("Lamp")]
         public int LampId { get; set; }
 
-        [Required]
+        //[Required]
         public virtual Lamp Lamp { get; set; }
 
         [Required]

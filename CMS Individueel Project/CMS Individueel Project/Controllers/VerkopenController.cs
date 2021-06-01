@@ -31,23 +31,6 @@ namespace CMS_Individueel_Project.Controllers
             return View(verkopen);
         }
 
-        // GET: Lamps/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var verkoop = await verkoopRepository.GetByIdAsync(id);    
-            if (verkoop == null)
-            {
-                return NotFound();
-            }
-
-            return View(verkoop);
-        }
-
         // GET: Lamps/Create
         public async Task<IActionResult> Create()
         {
@@ -80,56 +63,6 @@ namespace CMS_Individueel_Project.Controllers
             return View(verkoop);
         }
 
-        // GET: Lamps/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var verkoop = await verkoopRepository.GetByIdAsync(id);
-
-            if (verkoop == null)
-            {
-                return NotFound();
-            }
-            return View(verkoop);
-        }
-
-        // POST: Lamps/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Aantal")] Verkoop Verkoop)
-        {
-            if (id != Verkoop.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    verkoopRepository.Update(Verkoop);
-                    await verkoopRepository.SaveAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!LampExists(Verkoop.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(Verkoop);
-        }
-
         // GET: Lamps/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -152,8 +85,14 @@ namespace CMS_Individueel_Project.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            
             var verkoop = await verkoopRepository.GetByIdAsync(id);
-           verkoopRepository.Remove(verkoop);
+            var lamp = await lampRepository.GetByIdAsync(verkoop.LampId);
+
+            lamp.Aantal += verkoop.Aantal;
+            lampRepository.Update(lamp);
+
+            verkoopRepository.Remove(verkoop);
             await verkoopRepository.SaveAsync();
             return RedirectToAction(nameof(Index));
         }

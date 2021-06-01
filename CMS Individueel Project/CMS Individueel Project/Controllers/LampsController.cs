@@ -129,7 +129,6 @@ namespace CMS_Individueel_Project.Controllers
             {
                 return NotFound();
             }
-
             return View(lamp);
         }
 
