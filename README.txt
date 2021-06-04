@@ -23,9 +23,9 @@ is 2 keer corrupt geraakt wat heeft geleden tot wisseling van database client.
 gestopt vanwege database problemen.
 
 deze sprint:                                                                                                                                         ****
--Verkopen toegevoegd die zich afstellen op de lampen in de inventaris en deze ook automatisch updaten.                                               ****
--Begin aan layers, voornamelijk Data Layer, Business layer begint na feedback vanwege gebrek aan kennis en duidelijk gevonden uitleg.                ****
--SQL injectie bescherming door LINQ queries.                                                                                                         ****
+- Deze sprint heb ik gewerkt aan meer repos en heb ik 2 extra entiteiten toegevoegd, namelijk 							     ****
+de Producenten en kopers, deze zijn te vinden in aparte tabellen maar ook in de lampen en verkopen						     ****
+tabellen waar je alle lampen en verkopen kunt zien van de producent en koper(lampen-producent, verkoop-koper)                                        ****
 
 
 
