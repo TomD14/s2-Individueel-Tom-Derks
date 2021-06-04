@@ -80,7 +80,7 @@ namespace CMS_Individueel_Project.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!KoperExists(producent.Id))
+                    if (!ProducentExists(producent.Id))
                     {
                         return NotFound();
                     }
@@ -120,7 +120,7 @@ namespace CMS_Individueel_Project.Controllers
             await producentRepository.SaveAsync();
             return RedirectToAction(nameof(Index));
         }
-        private bool KoperExists(int id)
+        private bool ProducentExists(int id)
         {
             return producentRepository.GetByIdAsync(id) != null;
 
