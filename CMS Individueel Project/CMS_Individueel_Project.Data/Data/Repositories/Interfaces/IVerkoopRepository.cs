@@ -9,5 +9,7 @@ namespace CMS_Individueel_Project.Data.Data.Repositories.Interfaces
     public interface IVerkoopRepository
     {
         Task<IEnumerable<Verkoop>> GetAllVerkopenByModelAsync(string searchString);
+
+        Task<IEnumerable<Verkoop>> GetKoperAankopen(int koperId);
     }
 }

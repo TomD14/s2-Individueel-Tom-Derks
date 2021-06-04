@@ -20,6 +20,12 @@ namespace CMS_Individueel_Project.Data.Models
         public virtual Lamp Lamp { get; set; }
 
         [Required]
+        [ForeignKey("Koper")]
+        public int KoperId { get; set; }
+
+        public virtual Koper Koper { get; set; }
+
+        [Required]
         public int Aantal { get; set; }
 
     }

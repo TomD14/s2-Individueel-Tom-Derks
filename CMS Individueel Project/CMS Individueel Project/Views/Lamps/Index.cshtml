@@ -22,6 +22,9 @@
                 @Html.DisplayNameFor(model => model.Model)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Producent.Naam)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Watt)
             </th>
             <th>
@@ -41,6 +44,16 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+            @Html.ActionLink(item.Producent.Naam,
+                "ProducentenLampen",  // <-- Controller Name.
+                "Lamps", // <-- ActionMethod
+                new { id = item.ProducentId }, // <-- Route arguments.
+                null  // <-- htmlArguments .. which are none. You need this value
+                //     otherwise you call the WRONG method ...
+                //     (refer to comments, below).
+            )  
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Watt)

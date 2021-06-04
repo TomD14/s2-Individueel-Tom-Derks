@@ -17,10 +17,12 @@ namespace CMS_Individueel_Project.Controllers
     {
         VerkoopRepository verkoopRepository;
         LampRepository lampRepository;
+        KoperRepository koperRepository;
         public VerkopenController(CMSContext context)
         {
             verkoopRepository = new VerkoopRepository(context);
             lampRepository = new LampRepository(context);
+            koperRepository = new KoperRepository(context);
         }
 
         // GET: Lamps
@@ -35,20 +37,23 @@ namespace CMS_Individueel_Project.Controllers
         public async Task<IActionResult> Create()
         {
             var lamps = await lampRepository.GetAllAsync();
+            var kopers = await koperRepository.GetAllAsync();
             ViewData["lamps"] = lamps;
+            ViewData["kopers"] = kopers;
             return View();
         }
 
         // POST: Lamps/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("LampId,Aantal")] Verkoop verkoop)
+        public async Task<IActionResult> Create([Bind("LampId,Aantal,KoperId")] Verkoop verkoop)
         {
             if (ModelState.IsValid)
             {
                 var lamp = await lampRepository.GetByIdAsync(verkoop.LampId);
+                var koper = await koperRepository.GetByIdAsync(verkoop.KoperId);
 
-                if (lamp == null)
+                if (lamp == null || koper == null)
                 {
                     return NotFound();
                 }
@@ -95,6 +100,17 @@ namespace CMS_Individueel_Project.Controllers
             verkoopRepository.Remove(verkoop);
             await verkoopRepository.SaveAsync();
             return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> KoperVerkopen(int id)
+        {
+            string KoperNaam = koperRepository.GetById(id).Naam;
+
+            ViewData["KoperNaam"] = KoperNaam;
+
+            var Verkopen = await verkoopRepository.GetKoperAankopen(id);
+
+            return View(Verkopen);
         }
 
         private bool LampExists(int id)

@@ -16,13 +16,14 @@ namespace CMS_Individueel_Project.Data.Models
         
         [Required]
         public string Rekeningnummer { get; set; }
-        
-        [Required]
-        [ForeignKey("Verkoop")]
-        public int VerkoopId { get; set; }
 
-        [Required]
-        [ForeignKey("Adress")]
-        public int Adress { get; set; }
+        public string Gemeente { get; set; }
+
+        public string Straat { get; set; }
+
+        public string Huisnummer { get; set; }
+
+        public string PostCode { get; set; }
+
     }
 }

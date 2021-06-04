@@ -14,8 +14,12 @@ namespace CMS_Individueel_Project.Data.Data.Repositories
 
         public async Task<IEnumerable<Lamp>> GetAllLampsByModelAsync(string searchString)
         {
-            return await table.Where(s => s.Model.Contains(searchString == null? "" : searchString)).ToListAsync();
+            return await table.Include("Producent").Where(s => s.Model.Contains(searchString == null? "" : searchString)).ToListAsync();
         }
 
+        public async Task<IEnumerable<Lamp>> GetKoperAankopen(int producentId)
+        {
+            return await table.Include("Producent").Where(s => s.ProducentId == producentId).ToListAsync();
+        }
     }
 }

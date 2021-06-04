@@ -17,12 +17,12 @@ namespace CMS_Individueel_Project.Data.Models
         [Required]
         public string Rekeningnummer { get; set; }
 
-        [Required]
-        [ForeignKey("Lamp")]
-        public int LampId { get; set; }
+        public string Gemeente { get; set; }
 
-        [Required]
-        [ForeignKey("Adress")]
-        public int AdressId { get; set; }
+        public string Straat { get; set; }
+
+        public string Huisnummer { get; set; }
+
+        public string PostCode { get; set; }
     }
 }

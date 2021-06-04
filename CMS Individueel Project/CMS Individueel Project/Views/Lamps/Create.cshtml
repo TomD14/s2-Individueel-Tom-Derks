@@ -17,6 +17,14 @@
                 <input asp-for="Model" class="form-control" />
                 <span asp-validation-for="Model" class="text-danger"></span>
             </div>
+            <h>Producent</h>
+            <select class="form-control" name="ProducentId" required>
+                <option value="null" disabled selected>Select Producent</option>
+                @foreach (var item in ViewBag.Producent)
+                {
+                    <option value="@item.Id">@item.Naam</option>
+                }
+            </select>
             <div class="form-group">
                 <label asp-for="Watt" class="control-label"></label>
                 <input asp-for="Watt" class="form-control" />

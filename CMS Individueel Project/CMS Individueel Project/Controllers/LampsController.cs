@@ -15,9 +15,12 @@ namespace CMS_Individueel_Project.Controllers
     public class LampsController : Controller
     {
         LampRepository lampRepository;
+        ProducentRepository producentRepository;
+
         public LampsController(CMSContext context)
         {
             lampRepository = new LampRepository(context);
+            producentRepository = new ProducentRepository(context);
         }
 
         // GET: Lamps
@@ -47,15 +50,17 @@ namespace CMS_Individueel_Project.Controllers
         }
 
         // GET: Lamps/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            var producent = await producentRepository.GetAllAsync();
+            ViewData["Producent"] = producent;
             return View();
         }
 
         // POST: Lamps/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Model,Watt,Kleur,Prijs,Aantal")] Lamp lamp)
+        public async Task<IActionResult> Create([Bind("Id,Model,ProducentId,Watt,Kleur,Prijs,Aantal")] Lamp lamp)
         {
             if (ModelState.IsValid)
             {
@@ -141,6 +146,17 @@ namespace CMS_Individueel_Project.Controllers
             lampRepository.Remove(lamp);
             await lampRepository.SaveAsync();
             return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> ProducentenLampen(int id)
+        {
+            string ProducentNaam = producentRepository.GetById(id).Naam;
+
+            ViewData["ProducentNaam"] = ProducentNaam;
+
+            var Lampen = await lampRepository.GetKoperAankopen(id);
+
+            return View(Lampen);
         }
 
         private bool LampExists(int id)

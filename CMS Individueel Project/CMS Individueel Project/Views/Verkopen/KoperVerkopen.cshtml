@@ -2,20 +2,12 @@
 
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = ViewBag.KoperNaam;
 }
 
-<h1>Verkopen</h1>
+<h1>@ViewBag.KoperNaam</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<form asp-controller="Verkopen" asp-action="Index">
-    <p>
-        Model naam: <input type="text" name="SearchString" />
-        <input type="submit" value="Filter" />
-    </p>
-</form>
+
 <table class="table">
     <thead>
         <tr>
@@ -24,9 +16,6 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Aantal)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Koper.Naam)
             </th>
             <th>
                 Totaal
@@ -45,20 +34,10 @@
                 @Html.DisplayFor(modelItem => item.Aantal)
             </td>
             <td>
-                @Html.ActionLink(item.Koper.Naam,
-                "KoperVerkopen",  // <-- Controller Name.
-                "Verkopen", // <-- ActionMethod
-                new { id = item.KoperId }, // <-- Route arguments.
-                null  // <-- htmlArguments .. which are none. You need this value
-                      //     otherwise you call the WRONG method ...
-                      //     (refer to comments, below).
-                )
-
-            </td>
-            <td>
                 @(item.Aantal * item.Lamp.Prijs)
             </td>
             <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
