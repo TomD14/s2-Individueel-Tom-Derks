@@ -17,7 +17,7 @@ namespace CMS_Individueel_Project.Data.Data.Repositories
             return await table.Include("Producent").Where(s => s.Model.Contains(searchString == null? "" : searchString)).ToListAsync();
         }
 
-        public async Task<IEnumerable<Lamp>> GetKoperAankopen(int producentId)
+        public async Task<IEnumerable<Lamp>> GetProducentLampen(int producentId)
         {
             return await table.Include("Producent").Where(s => s.ProducentId == producentId).ToListAsync();
         }

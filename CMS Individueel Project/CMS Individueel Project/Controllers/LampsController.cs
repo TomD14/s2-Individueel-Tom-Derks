@@ -154,7 +154,7 @@ namespace CMS_Individueel_Project.Controllers
 
             ViewData["ProducentNaam"] = ProducentNaam;
 
-            var Lampen = await lampRepository.GetKoperAankopen(id);
+            var Lampen = await lampRepository.GetProducentLampen(id);
 
             return View(Lampen);
         }
