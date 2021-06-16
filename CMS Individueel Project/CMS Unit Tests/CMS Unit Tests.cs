@@ -11,6 +11,9 @@ namespace CMS_Unit_Tests
     [TestClass]
     public class UnitTest1
     {
+        LampRepository lampRepository;
+        ProducentRepository producentRepository;
+
         [TestInitialize]
         public void TestInit()
         {
@@ -18,18 +21,16 @@ namespace CMS_Unit_Tests
             .UseInMemoryDatabase(databaseName: "Test_DB")
             .Options;
 
-            using var context = new CMSContext(options);
+            var context = new CMSContext(options);
+
+            lampRepository = new LampRepository(context);
+            producentRepository = new ProducentRepository(context);
+
         }
 
         [TestMethod]
         public void ALamp_Add_TrueIsId1()
         {
-            LampRepository lampRepository;
-            ProducentRepository producentRepository;
-
-            producentRepository = new ProducentRepository(context);
-            lampRepository = new LampRepository(context);
-
             Producent producent = new Producent()
             {
                 Naam = "Phillips",
@@ -63,16 +64,6 @@ namespace CMS_Unit_Tests
         [TestMethod]
         public async Task BLamp_GetAllLampsByModelAsync_TrueIsLampnaamAsync()
         {
-            LampRepository lampRepository;
-
-            var options = new DbContextOptionsBuilder<CMSContext>()
-            .UseInMemoryDatabase(databaseName: "Test_DB")
-            .Options;
-
-            using var context = new CMSContext(options);
-
-            lampRepository = new LampRepository(context);
-
             Lamp lamp = lampRepository.GetById(1);
             string searchstring = lamp.Model;
             var lampen = await lampRepository.GetAllLampsByModelAsync(searchstring);
@@ -83,18 +74,6 @@ namespace CMS_Unit_Tests
         [TestMethod]
         public async Task CLamp_GetProducentLampen_TrueIsTestLampAsync()
         {
-            LampRepository lampRepository;
-
-            var options = new DbContextOptionsBuilder<CMSContext>()
-            .UseInMemoryDatabase(databaseName: "Test_DB")
-            .Options;
-
-            using var context = new CMSContext(options);
-
-            lampRepository = new LampRepository(context);
-
-            Lamp lamp = lampRepository.GetAll().First();
-
             var producentLampen = await lampRepository.GetProducentLampen(1);
 
             Assert.IsTrue(producentLampen.First().Model == "Test");
@@ -103,16 +82,6 @@ namespace CMS_Unit_Tests
         [TestMethod]
         public void DLamp_Edit_NewEditIsTrue()
         {
-            LampRepository lampRepository;
-
-            var options = new DbContextOptionsBuilder<CMSContext>()
-            .UseInMemoryDatabase(databaseName: "Test_DB")
-            .Options;
-
-            using var context = new CMSContext(options);
-
-            lampRepository = new LampRepository(context);
-
             const int resultWatt = 50;
 
             Lamp lamp = lampRepository.GetAll().First();
@@ -128,16 +97,6 @@ namespace CMS_Unit_Tests
         [TestMethod]
         public void ELamp_Delete_TrueIsNull()
         {
-            LampRepository lampRepository;
-
-            var options = new DbContextOptionsBuilder<CMSContext>()
-            .UseInMemoryDatabase(databaseName: "Test_DB")
-            .Options;
-
-            using var context = new CMSContext(options);
-
-            lampRepository = new LampRepository(context);
-
             Lamp lamp = lampRepository.GetAll().First();
 
             lampRepository.Remove(lamp);
