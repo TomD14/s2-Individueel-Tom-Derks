@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CMS Individueel Project.Log
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CMS_Individueel_Project.Data", "CMS_Individueel_Project.Data\CMS_Individueel_Project.Data.csproj", "{D045C751-869A-4404-AEBA-81165AB0DC22}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unit Tests", "Unit Tests\Unit Tests.csproj", "{732374AA-46E8-4716-97C9-CFF95F249F43}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS Unit Tests", "CMS Unit Tests\CMS Unit Tests.csproj", "{45ED1A3B-75B3-468A-8248-3467628B54A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{D045C751-869A-4404-AEBA-81165AB0DC22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D045C751-869A-4404-AEBA-81165AB0DC22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D045C751-869A-4404-AEBA-81165AB0DC22}.Release|Any CPU.Build.0 = Release|Any CPU
-		{732374AA-46E8-4716-97C9-CFF95F249F43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{732374AA-46E8-4716-97C9-CFF95F249F43}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{732374AA-46E8-4716-97C9-CFF95F249F43}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{732374AA-46E8-4716-97C9-CFF95F249F43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45ED1A3B-75B3-468A-8248-3467628B54A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45ED1A3B-75B3-468A-8248-3467628B54A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45ED1A3B-75B3-468A-8248-3467628B54A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45ED1A3B-75B3-468A-8248-3467628B54A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

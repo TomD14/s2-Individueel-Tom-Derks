@@ -76,5 +76,10 @@ namespace CMS_Individueel_Project.Data.Data.Repositories
         {
             return await _context.SaveChangesAsync();
         }
+
+        public virtual int Save()
+        {
+            return _context.SaveChanges();
+        }
     }
 }
