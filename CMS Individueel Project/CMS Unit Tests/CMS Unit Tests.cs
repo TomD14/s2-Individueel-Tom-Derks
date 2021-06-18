@@ -13,6 +13,8 @@ namespace CMS_Unit_Tests
     {
         LampRepository lampRepository;
         ProducentRepository producentRepository;
+        KoperRepository koperRepository;
+        VerkoopRepository verkoopRepository;
 
         [TestInitialize]
         public void TestInit()
@@ -25,6 +27,8 @@ namespace CMS_Unit_Tests
 
             lampRepository = new LampRepository(context);
             producentRepository = new ProducentRepository(context);
+            verkoopRepository = new VerkoopRepository(context);
+            koperRepository = new KoperRepository(context);
 
         }
 
@@ -38,7 +42,7 @@ namespace CMS_Unit_Tests
                 Gemeente = "Budel",
                 Straat = "Berk",
                 Huisnummer = "14B",
-                PostCode = "2060NJ" 
+                PostCode = "2060NJ"
 
             };
             producentRepository.Add(producent);
@@ -62,6 +66,35 @@ namespace CMS_Unit_Tests
         }
 
         [TestMethod]
+        public void AVerkoop_Add_TrueVerkoopExists()
+        {
+            lampRepository.GetAll();
+
+            Koper koper = new Koper()
+            {
+                Naam = "Jan",
+                Rekeningnummer = "10",
+                Gemeente = "Weert",
+                Straat = "Erk",
+                Huisnummer = "26",
+                PostCode = "3084KI"
+            };
+            koperRepository.Add(koper);
+
+            Verkoop verkoop = new Verkoop()
+            {
+                LampId = 1,
+                KoperId = 1,
+                Aantal = 20
+            };
+            verkoopRepository.Add(verkoop);
+            verkoopRepository.Save();
+
+            Assert.IsTrue(verkoopRepository.GetById(1).Lamp.Model == "Test");
+
+        }
+
+        [TestMethod]
         public async Task BLamp_GetAllLampsByModelAsync_TrueIsLampnaamAsync()
         {
             Lamp lamp = lampRepository.GetById(1);
@@ -72,11 +105,31 @@ namespace CMS_Unit_Tests
         }
 
         [TestMethod]
+        public async Task BVerkoop_GetAllVerkopenByModelAsync_TrueIsVerkoopnaamAsync()
+        {
+            lampRepository.GetAll();
+
+            Verkoop verkoop = verkoopRepository.GetAll().First();
+            string searchstring = verkoop.Lamp.Model;
+            var verkopen = await verkoopRepository.GetAllVerkopenByModelAsync(searchstring);
+
+            Assert.IsTrue(verkopen.First().Lamp.Model == "Test");
+        }
+
+        [TestMethod]
         public async Task CLamp_GetProducentLampen_TrueIsTestLampAsync()
         {
             var producentLampen = await lampRepository.GetProducentLampen(1);
 
             Assert.IsTrue(producentLampen.First().Model == "Test");
+        }
+
+        [TestMethod]
+        public async Task CVerkoop_GetKopersVerkopen_TrueIsTestVerkoopAsync()
+        {
+            var koperVerkopen = await verkoopRepository.GetKoperAankopen(1);
+
+            Assert.IsTrue(koperVerkopen.First().Lamp.Model == "Test");
         }
 
         [TestMethod]
