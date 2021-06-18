@@ -22,7 +22,7 @@ namespace CMS_Individueel_Project.Data.Models
         [Required]
         public int Kleur { get; set; }
 
-        [DataType(DataType.Currency)]
+        [DataType(dataType: DataType.Currency)]
         public decimal Prijs { get; set; }
 
         [ForeignKey("Producent")]
