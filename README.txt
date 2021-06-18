@@ -22,10 +22,9 @@ is 2 keer corrupt geraakt wat heeft geleden tot wisseling van database client.
 -Begin gemaakt aan formcollection en betere bescherming tegen sql injectie maar halverwege 
 gestopt vanwege database problemen.
 
-deze sprint:                                                                                                                                         ****
-- Deze sprint heb ik gewerkt aan meer repos en heb ik 2 extra entiteiten toegevoegd, namelijk 							     ****
-de Producenten en kopers, deze zijn te vinden in aparte tabellen maar ook in de lampen en verkopen						     ****
-tabellen waar je alle lampen en verkopen kunt zien van de producent en koper(lampen-producent, verkoop-koper)                                        ****
+deze sprint:                                                                                                                                   	       ****
+- Deze Sprint heb ik mijn unit tests gemaakt, en mijn prijs field gefixt omdat deze door auto 
+format niet goed opgehaald werd											                                       ****
 
 
 
